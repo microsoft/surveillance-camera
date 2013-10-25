@@ -1,0 +1,45 @@
+﻿<!--
+ Copyright (c) 2012 Nokia Corporation.
+ -->
+
+<UserControl x:Class="SurveillanceCamera.UserControls.InformationNote"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="50" d:DesignWidth="480">
+    
+    <Grid x:Name="LayoutRoot" Background="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Row="0" Grid.Column="0" 
+                BorderThickness="1"
+                BorderBrush="Gray" 
+                Background="Transparent"
+                Name="border1">
+            <StackPanel Orientation="Horizontal">
+
+                <Image Margin="5,5,5,5" Width="40" Height="40" Source="/Images/lens.png"/>
+                
+                <TextBlock x:Name="infoText"  Margin="5,10,5,5" 
+                   Text="{Binding Message}" 
+                   Width="410"
+                   Foreground="{StaticResource PhoneForegroundBrush}"
+                   FontSize="{StaticResource PhoneFontSizeMedium}" 
+                   HorizontalAlignment="Stretch" 
+                   TextWrapping="Wrap" />
+            </StackPanel>
+        </Border>
+        
+    </Grid>
+</UserControl>

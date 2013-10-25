@@ -1,0 +1,104 @@
+﻿<!--
+ Copyright (c) 2012 Nokia Corporation.
+ -->
+
+<phone:PhoneApplicationPage 
+    x:Class="SurveillanceCamera.InfoPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="800" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="False">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="/SurveillanceCamera;component/Images/page_background.jpg" />
+        </Grid.Background>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationTitle" Text="Surveillance Camera v1.0.2" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Text="information" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <ScrollViewer x:Name="scrollViewer" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible" >
+                <TextBlock x:Name="infoText" TextWrapping="Wrap" 
+                Foreground="{StaticResource PhoneForegroundBrush}"
+                FontSize="{StaticResource PhoneFontSizeNormal}" >
+                
+                <Run FontWeight="Bold">General</Run>
+                <LineBreak />
+                    
+                Surveillance Camera for Silverlight and Qt demonstrates how to use 
+                Nokia's Notifications API. The Notifications API lets you send real-time
+                push notifications to your client applications. The Windows Phone application
+                uses the Service API to send push notifications to Symbian device. The Windows Phone
+                side of the example has been implemented using Silverlight and the Symbian side of
+                the example has been created with Qt Quick.                    
+               
+                <LineBreak />
+                <LineBreak />
+                    
+                - <Run FontWeight="Bold">This Silverlight application</Run> is the actual surveillance camera and searches for movement in the camera viewfinder. The application authenticates to the Notifications Service for sending alert notifications.
+                <LineBreak />
+                - The Qt application registrates into Notifications Service and receives alert notifications from the Silverlight application. See Learn more.
+
+                <LineBreak />
+                <LineBreak />
+
+                <Run FontWeight="Bold">Nokia Account</Run>
+                <LineBreak />
+
+                You need a valid Nokia Account ID in order to send and 
+                receive notifications. The Silverlight application sends alert 
+                notifications to the selected Nokia Account user. This user must have 
+                his Nokia Account ID enabled after which he is able to 
+                receive notifications with the Qt application.                    
+                    
+                <LineBreak />
+                <LineBreak />
+
+                <Run FontWeight="Bold">License of sounds</Run>
+                <LineBreak />
+
+                The sounds used in this application are from freesound.org and they are used under the Creative Commons 
+                Sampling Plus 1.0 license:                    
+                <LineBreak />
+                - 26173__wim__sirene-06080401.wav<LineBreak />
+                - 27878__inequation__walkietalkie-eot.wav<LineBreak />
+                - 30335__erh__radio-noise-2.wav<LineBreak />
+                - 30623__erh__do-it-now-2.wav<LineBreak />
+                - 31841__hardpcm__chip001.wav<LineBreak />
+                - 34383__erh__walk-away.wav<LineBreak />
+                    
+                <LineBreak />
+                <LineBreak />
+
+                Copyright (c) 2012 Nokia Corporation.
+                    
+                </TextBlock>
+            </ScrollViewer>
+        </Grid>
+
+        <HyperlinkButton Grid.Row="2" Content="Learn more" Height="50" Name="hyperlinkButton1" 
+         NavigateUri="http://projects.developer.nokia.com/surveillancecamera" TargetName="_anything" />
+
+    </Grid>
+    
+</phone:PhoneApplicationPage>

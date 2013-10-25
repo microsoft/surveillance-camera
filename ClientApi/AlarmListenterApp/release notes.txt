@@ -1,0 +1,165 @@
+AlarmListener - the Surveillance Camera Client
+============================================
+
+Surveillance Camera for Silverlight (Windows Phone) and Qt (Symbian) demonstrates how to use 
+Nokia's Notifications API. The Notifications API lets you add real-time push 
+notifications to your client applications. The Silverlight application uses the Notifications
+Server API to send push notifications to the Symbian device and the Qt application 
+uses the Notifications Client API to register as a notification listener. 
+The Windows Phone side of the example UI has been implemented using Silverlight and 
+the Symbian side has been created with Qt Quick Components.
+
+- The Silverlight application is the actual surveillance camera and searches for
+  movements in the camera viewfinder. The application authenticates to the
+  Notifications Service for sending alert notifications.
+  
+- The Qt application (AlarmListener) registers to the Notifications Service
+  and receives alert notifications from the Silverlight application.
+
+You need a valid Nokia account ID in order to send and receive notifications.
+The Silverlight application sends alert notifications to the selected Nokia account user.
+This user must have his or her Nokia account ID enabled after which he or she is able to
+receive notifications with the Qt application.   
+  
+This example application is hosted in Nokia Developer Projects:
+- http://projects.developer.nokia.com/surveillancecamera
+
+For more information on the implementation of the Silverlight and Qt versions, visit the wiki pages:
+- http://projects.developer.nokia.com/surveillancecamera/wiki/qt
+- http://projects.developer.nokia.com/surveillancecamera/wiki/wp
+
+
+1. Using the application
+-------------------------------------------------------------------------------
+
+The Notifications API is by default in offline state. It means that the Qt application
+does not listen for notifications for the "com.demo.notification.dn" application.
+
+To set the API online, switch the "Alarm" toggle button down.
+If you have not enabled a Nokia account you are asked to do that by the Notification Framework. 
+Notifications are sent to the selected Nokia account user.
+
+When the Notifications Framework reads the notification for the "com.demo.notification.dn" 
+application, it starts the Qt AlarmListener application. The application 
+reads the incoming alert notification and creates an alert.
+
+For disabling notification listening, switch the "Alarm off" toggle button down.
+
+The application follows the device profile status automatically.
+
+
+2. Prerequisites
+-------------------------------------------------------------------------------
+
+ - Qt basics
+ - Qt Quick basics
+
+
+3. Project structure and implementation
+-------------------------------------------------------------------------------
+
+3.1 Folders
+-----------
+
+ |                  The root folder contains the project file, resource files,
+ |                  the license information, and this file (release notes).
+ |
+ |- qml             Contains QML, Javascript and static picture files.
+ |
+ |- src             Contains the Qt/C++ source code files.
+
+
+3.2 Important files and classes
+-------------------------------
+
+| File                           | Description                                |
+|--------------------------------|--------------------------------------------|
+| src/notifhelper.h              | Class for communicating with the           |
+|                                | Notifications Client API                   |
+|--------------------------------|--------------------------------------------|
+
+
+3.3 Used APIs/QML elements/Qt Quick Components
+----------------------------------------------
+
+- Notifications Client API
+- Qt Quick Components: Window, Page, StatusBar, ToolBar, PageStack, Page, 
+  ListItem, ListHeading, BusyIndicator, Dialog, ToolButton
+
+
+
+4. Compatibility
+-------------------------------------------------------------------------------
+
+ - Symbian devices with Qt 4.7.4 or higher.
+ 
+Tested to work on Nokia E7 and Nokia N8. Developed with Qt SDK 1.2.
+
+
+4.1 Required capabilities
+-------------------------
+
+None; the application can be self signed on Symbian.
+
+
+4.2 Known issues
+----------------
+
+None.
+
+
+5. Building, installing, and running the application
+-------------------------------------------------------------------------------
+
+5.1 Preparations
+----------------
+
+Check that you have the latest Qt SDK installed in the development environment
+and the latest Qt version on the device.
+
+Qt Quick Components 1.1 or higher is required.
+
+
+5.2 Using the Qt SDK
+--------------------
+
+You can install and run the application on the device by using the Qt SDK.
+Open the project in the SDK, set up the correct target (depending on the device
+platform), and click the Run button. For more details about this approach,
+visit the Qt Getting Started section at Nokia Developer
+(http://www.developer.nokia.com/Develop/Qt/Getting_started/).
+
+
+5.3 Symbian device
+------------------
+
+Make sure your device is connected to your computer. Locate the .sis
+installation file and open it with Nokia Suite. Accept all requests from Nokia 
+Suite and the device. Note that you can also install the application by copying
+the installation file onto your device and opening it with the Symbian File
+Manager application.
+
+After the application is installed, locate the application icon from the
+application menu and launch the application by tapping the icon.
+
+
+6. License
+-------------------------------------------------------------------------------
+
+See the license text file delivered with this project. The license file is also
+available online at
+http://projects.developer.nokia.com/surveillancecamera/browser/trunk/ClientApi/AlarmListenterApp/Licence.txt
+
+
+7. Related documentation
+-------------------------------------------------------------------------------
+Qt Quick Components
+- http://doc.qt.nokia.com/qtquick-components-symbian-1.1/index.html
+
+
+8. Version history
+-------------------------------------------------------------------------------
+
+1.0.2 Missing .png file added into package
+1.0.1 Volume keys listening bug fixed
+1.0.0 Initial release

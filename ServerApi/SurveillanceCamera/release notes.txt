@@ -1,0 +1,138 @@
+Surveillance Camera
+===================
+
+The Surveillance Camera example application for Silverlight (Windows Phone) and Qt (Symbian) demonstrates how to use 
+Nokia's Notifications API. The Notifications API lets you add real-time push 
+notifications to your client applications. The Silverlight application uses the Notifications
+Server API to send push notifications to the Symbian device and the Qt application 
+uses the Notifications Client API to register as a notification listener. 
+The Windows Phone side of the example UI has been implemented using Silverlight and 
+the Symbian side has been created with Qt Quick Components.
+
+- The Silverlight application is the actual surveillance camera and it searches for
+  movements in the camera viewfinder. The application authenticates to the
+  Notifications Service for sending alert notifications.
+  
+- The Qt application registers to the Notifications Service and receives alert
+  notifications from the Silverlight application.
+
+You need a valid Nokia account ID in order to send and receive notifications.
+The Silverlight application sends alert notifications to the selected Nokia account user.
+This user must have his or her Nokia account ID enabled before he or she can receive notifications with the Qt application.   
+
+This example application is hosted in Nokia Developer Projects:
+- http://projects.developer.nokia.com/surveillancecamera
+
+For more information on the implementation of the Silverlight and Qt versions visit the wiki pages:
+- http://projects.developer.nokia.com/surveillancecamera/wiki/qt
+- http://projects.developer.nokia.com/surveillancecamera/wiki/wp
+
+
+1. Using the application
+-------------------------------------------------------------------------------
+
+The Silverlight application makes a digest authentication into the Notifications Service.
+After a succesful authentication, the  application can send notifications to the
+given Nokia account.
+
+The application reads the camera frames and checks the red colour from the RGBA frame. 
+If the red color in the current and the previous frames differ enough, the application 
+decides that there is movement in the viewfinder and sends an alert notification.
+
+Alarm history is stored in an isolated storage.
+
+
+2. Prerequisites
+-------------------------------------------------------------------------------
+
+ - Silverlight basics
+
+
+3. Project structure and implementation
+-------------------------------------------------------------------------------
+
+3.1 Folders
+-----------
+
+ |                  The root folder contains the project file, resource files,
+ |                  xaml and cs files, the license information, and this file (release notes).
+ |
+ |- Sounds          Contains sound files.
+ |
+ |- Images          Contains image files.
+ |
+ |- Model           Contains UI model cs files.
+ |
+ |- UserControls    Contains custom UI control files.
+ 
+
+3.2 Important files and classes
+-------------------------------
+
+| File                           | Description                                |
+|--------------------------------|--------------------------------------------|
+| MainPage.xaml                  | Application main page that shows viewfinder|                                           |                                |                                            |
+| MainPage.xaml.cs               |                                            |
+|--------------------------------|--------------------------------------------|
+| NotifServerApi.cs              | Class for communicating with  the          |
+|                                | Notifications Server API                   |
+|--------------------------------|--------------------------------------------|
+
+
+4. Compatibility
+-------------------------------------------------------------------------------
+
+ - Windows Phone Mango
+ 
+Tested to work on Nokia Lumia 800. 
+Developed with Microsoft Visual Studio 2010 Express for Windows Phone.
+
+4.1 Required capabilities
+-------------------------
+
+<Capabilities>
+  <Capability Name="ID_CAP_NETWORKING" />
+  <Capability Name="ID_CAP_ISV_CAMERA" />
+  <Capability Name="ID_CAP_MEDIALIB" />
+</Capabilities>
+
+
+4.2 Known issues
+----------------
+
+None.
+
+
+5. Building, installing, and running the application
+-------------------------------------------------------------------------------
+
+5.1 Preparations
+----------------
+
+Check that you have the latest Microsoft Visual Studio 2010 Express for Windows
+Phone installed in the development environment.
+
+5.2 Using the SDK
+--------------------
+
+Open SurveillanceCamera.sln in Microsoft Visual Studio. Select "Windows
+Phone Emulator" or "Windows Phone Device" as the target of the build binary.
+
+Select "Build->Build Solution" from the menu to build the code.
+Select "Build->Deploy Solution" from the menu to deploy the binary the selected target.
+
+
+6. License
+-------------------------------------------------------------------------------
+
+See the license text file delivered with this project. The license file is also
+available online at
+http://projects.developer.nokia.com/surveillancecamera/browser/trunk/ServerApi/SurveillanceCamera/Licence.txt
+
+
+7. Version history
+-------------------------------------------------------------------------------
+
+1.0.2 Missing .png file added into package
+1.0.1 Memory leak in the Symbian clinet app implememtation fixed
+1.0.0 Initial release
