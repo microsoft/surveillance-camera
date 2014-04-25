@@ -12,4 +12,4 @@ https://github.com/nokia-developer/surveillance-camera/wiki
 
 ---
 
-*Copyright (c) 2011-2013 Nokia Corporation. All rights reserved.*
+*Copyright (c) 2011-2014 Microsoft Mobile. All rights reserved.*

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012 Nokia Corporation.
+ * Copyright (c) 2012-2014 Microsoft Mobile.
  */
 
 import QtQuick 1.1
@@ -62,7 +62,7 @@ Page {
                   "See the project's wiki pages at <a href=\"http://projects.developer.nokia.com/surveillancecamera\">Nokia Developer</a>" +
                   "</p>" +
                   "<p>" +
-                  "Copyright (c) 2012 Nokia Corporation." +
+                  "Copyright (c) 2012-2014 Microsoft Mobile." +
                   "</p>";
         }
     }
